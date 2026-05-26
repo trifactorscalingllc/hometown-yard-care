@@ -57,7 +57,7 @@ function Home() {
           <div className="relative">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-sm border border-border bg-muted">
               <img
-                src="/gallery/work-09.jpg"
+                src="/gallery/work-47.jpg"
                 alt="A finished yard cared for by Cason Landscaping in Stephenville, TX"
                 className="h-full w-full object-cover"
               />
@@ -164,10 +164,10 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2 md:gap-4">
             <GalleryTile className="md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" src="/gallery/work-04.jpg" label="Stone planter wall" />
-            <GalleryTile className="aspect-square" src="/gallery/work-17.jpg" label="Front entry refresh" />
-            <GalleryTile className="aspect-square" src="/gallery/work-03.jpg" label="Stone-bordered beds" />
-            <GalleryTile className="aspect-square" src="/gallery/work-12.jpg" label="Tree-ring mulch" />
-            <GalleryTile className="aspect-square" src="/gallery/work-15.jpg" label="Ranch rock bed" />
+            <GalleryTile className="aspect-square" src="/gallery/work-30.jpg" label="Rock & plant island" />
+            <GalleryTile className="aspect-square" src="/gallery/work-22.jpg" label="Stone retaining wall" />
+            <GalleryTile className="aspect-square" src="/gallery/work-18.jpg" label="Curved mulch bed" />
+            <GalleryTile className="aspect-square" src="/gallery/work-43.jpg" label="Crisp edges" />
           </div>
         </div>
       </section>

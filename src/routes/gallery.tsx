@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { X } from "lucide-react";
 import { Reveal } from "../components/Reveal";
+import grassBg from "../assets/grass-bg.jpg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -100,7 +101,15 @@ function GalleryPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-muted/40 py-16 md:py-20">
+      <section
+        className="relative isolate overflow-hidden border-b border-border bg-muted/40 py-16 md:py-20"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: `url(${grassBg})` }}
+        />
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background/80" />
         <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
           <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
             Recent work around Stephenville

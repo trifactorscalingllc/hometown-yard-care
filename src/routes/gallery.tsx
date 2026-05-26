@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { X } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -132,8 +133,10 @@ function GalleryPage() {
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {tiles.map((t) => (
-              <Tile key={t.src} tile={t} onOpen={() => setLightbox(t)} />
+            {tiles.map((t, i) => (
+              <Reveal key={t.src} className={t.span} delay={(i % 6) * 60}>
+                <Tile tile={t} onOpen={() => setLightbox(t)} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -177,7 +180,7 @@ function GalleryPage() {
 
 function Tile({ tile, onOpen }: { tile: Tile; onOpen: () => void }) {
   return (
-    <figure className={`group relative overflow-hidden rounded-sm border border-border bg-muted ${tile.span}`}>
+    <figure className="group relative h-full w-full overflow-hidden rounded-sm border border-border bg-muted">
       <button
         type="button"
         onClick={onOpen}

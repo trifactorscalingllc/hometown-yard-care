@@ -6,9 +6,9 @@ import { SERVICES, SITE } from "../components/SiteData";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cason Landscaping — Lawn Care in Stephenville, TX" },
+      { title: "Cason Landscaping · Lawn Care in Stephenville, TX" },
       { name: "description", content: "Locally owned lawn care and landscape in Stephenville, TX. Free quotes. Call (254) 434-3838." },
-      { property: "og:title", content: "Cason Landscaping — Stephenville, TX" },
+      { property: "og:title", content: "Cason Landscaping · Stephenville, TX" },
       { property: "og:description", content: "Lawn care, mulching, landscaping in Erath County." },
       { property: "og:url", content: "/" },
     ],
@@ -79,7 +79,7 @@ function Home() {
               What we do
             </h2>
             <p className="mt-4 text-base text-muted-foreground md:text-lg">
-              Seven services covering most properties in Erath County. One-time visits or a recurring schedule — your call.
+              Seven services covering most properties in Erath County. One-time visits or a recurring schedule · your call.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ function Home() {
             Ready when you are.
           </h2>
           <p className="max-w-xl text-base text-primary-foreground/80 md:text-lg">
-            Free, honest quotes. No call center, no contract pressure — just a price and a plan.
+            Free, honest quotes. No call center, no contract pressure · just a price and a plan.
           </p>
           <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-sm bg-secondary px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-secondary/90">

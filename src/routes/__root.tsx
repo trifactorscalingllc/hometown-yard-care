@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { SITE } from "../components/SiteData";
 
 function NotFoundComponent() {
   return (
@@ -72,19 +75,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Cason Landscaping — Stephenville, TX" },
+      { name: "description", content: "Locally owned lawn care & landscape in Stephenville, TX. Mowing, mulching, bush trimming, leaf removal, overseeding, aeration." },
+      { name: "author", content: "Cason Landscaping" },
+      { property: "og:site_name", content: "Cason Landscaping" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Inter:wght@400;500;600;700&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: SITE.name,
+          telephone: SITE.phone,
+          email: SITE.email,
+          areaServed: "Stephenville, TX and surrounding Erath County",
+          address: { "@type": "PostalAddress", addressLocality: "Stephenville", addressRegion: "TX", addressCountry: "US" },
+          sameAs: [SITE.facebook],
+        }),
       },
     ],
   }),
@@ -113,7 +132,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="flex min-h-screen flex-col bg-grain">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </QueryClientProvider>
   );
 }

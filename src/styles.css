@@ -62,39 +62,44 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.25rem;
+  /* Cream #F4EDE0 */
+  --background: oklch(0.948 0.022 84);
+  /* Near-black ink #14110D */
+  --foreground: oklch(0.16 0.008 70);
+  --card: oklch(0.965 0.018 84);
+  --card-foreground: oklch(0.16 0.008 70);
+  --popover: oklch(0.965 0.018 84);
+  --popover-foreground: oklch(0.16 0.008 70);
+  /* Deep forest green #1F3A2E */
+  --primary: oklch(0.33 0.05 155);
+  --primary-foreground: oklch(0.948 0.022 84);
+  /* Moss green #6B8E5A */
+  --secondary: oklch(0.6 0.08 135);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.91 0.025 84);
+  --muted-foreground: oklch(0.42 0.02 70);
+  /* Warm wheat #B8954A */
+  --accent: oklch(0.69 0.11 80);
+  --accent-foreground: oklch(0.16 0.008 70);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.86 0.025 80);
+  --input: oklch(0.86 0.025 80);
+  --ring: oklch(0.69 0.11 80);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.948 0.022 84);
+  --sidebar-foreground: oklch(0.16 0.008 70);
+  --sidebar-primary: oklch(0.33 0.05 155);
+  --sidebar-primary-foreground: oklch(0.948 0.022 84);
+  --sidebar-accent: oklch(0.69 0.11 80);
+  --sidebar-accent-foreground: oklch(0.16 0.008 70);
+  --sidebar-border: oklch(0.86 0.025 80);
+  --sidebar-ring: oklch(0.69 0.11 80);
 }
 
 .dark {
@@ -140,5 +145,42 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
   }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+
+  h1 em, h2 em, h3 em, .font-display em {
+    font-style: italic;
+    font-variation-settings: 'SOFT' 100;
+    color: var(--color-accent);
+  }
+}
+
+/* Subtle paper-grain dot pattern */
+.bg-grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,17,13,0.06) 1px, transparent 0);
+  background-size: 14px 14px;
+}
+.bg-grain-dark {
+  background-image: radial-gradient(circle at 1px 1px, rgba(244,237,224,0.04) 1px, transparent 0);
+  background-size: 14px 14px;
+}
+
+/* Client placeholder marker */
+.client-placeholder {
+  border: 1.5px dashed var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+  color: var(--color-foreground);
+  padding: 0.5rem 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
 }

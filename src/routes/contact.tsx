@@ -65,7 +65,7 @@ function ContactPage() {
               </Field>
               <Field label="Service" className="sm:col-span-2">
                 <select value={form.service} onChange={set("service")} className={input}>
-                  <option value="">— Pick a service —</option>
+                  <option value="">Pick a service</option>
                   {SERVICES.map((s) => (
                     <option key={s.slug} value={s.name}>{s.name}</option>
                   ))}

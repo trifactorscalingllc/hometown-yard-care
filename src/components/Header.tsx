@@ -15,12 +15,12 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
-        <Link to="/" className="flex items-center" aria-label="Cason Landscaping Home">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-3 md:px-8">
+        <Link to="/" className="flex items-center justify-self-start" aria-label="Cason Landscaping Home">
           <Logo size={52} />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center justify-self-center gap-8 md:flex" aria-label="Primary">
           {NAV.map((item) => (
             <Link
               key={item.to}
@@ -34,13 +34,14 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-self-end gap-2">
           <a
             href={SITE.phoneHref}
             className="hidden items-center gap-2 rounded-sm bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:inline-flex"
+            aria-label={`Call ${SITE.phone}`}
           >
-            <Phone className="h-4 w-4" />
-            {SITE.phone}
+            <span aria-hidden>📞</span>
+            Call
           </a>
           <button
             type="button"
@@ -69,9 +70,10 @@ export function Header() {
             <a
               href={SITE.phoneHref}
               className="mt-2 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+              aria-label={`Call ${SITE.phone}`}
             >
-              <Phone className="h-4 w-4" />
-              {SITE.phone}
+              <span aria-hidden>📞</span>
+              Call
             </a>
           </nav>
         </div>

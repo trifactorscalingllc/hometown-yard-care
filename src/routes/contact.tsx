@@ -56,7 +56,7 @@ function ContactPage() {
 
       <section className="py-14 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1.2fr_1fr] md:gap-14 md:px-8">
-          <Reveal>
+          <Reveal className="h-full">
           <form onSubmit={onSubmit} className="flex h-full flex-col rounded-sm border border-border bg-card p-7 shadow-sm md:p-9">
             <h2 className="font-display text-2xl font-bold uppercase tracking-tight">Free quote</h2>
             <p className="mt-1.5 text-sm text-muted-foreground">

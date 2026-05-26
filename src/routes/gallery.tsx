@@ -5,9 +5,9 @@ import { X } from "lucide-react";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Cason Landscaping, Stephenville TX" },
+      { title: "Gallery · Cason Landscaping, Stephenville TX" },
       { name: "description", content: "Recent lawn care, landscaping, mulch, and stonework projects in and around Stephenville, Texas." },
-      { property: "og:title", content: "Gallery — Cason Landscaping" },
+      { property: "og:title", content: "Gallery · Cason Landscaping" },
       { property: "og:description", content: "See yards we've kept and projects we've put in." },
       { property: "og:url", content: "/gallery" },
     ],
@@ -24,7 +24,7 @@ type Tile = {
   span: string;
 };
 
-// 48 work photos from Facebook (work-13 skipped — it's a promo graphic).
+// 48 work photos from Facebook (work-13 skipped · it's a promo graphic).
 // Spans alternate to keep the grid lively; hero-style large tiles every ~8 photos.
 const TILES: Tile[] = [
   { src: "/gallery/work-47.jpg", caption: "Golden-hour mow", type: "Large-lot lawn care", category: "Lawn Care", span: "md:col-span-2 md:row-span-2" },
@@ -105,7 +105,7 @@ function GalleryPage() {
             Recent work around Stephenville
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-            {TILES.length} real jobs — lawn care, mulching, landscaping, and stone work.
+            {TILES.length} real jobs · lawn care, mulching, landscaping, and stone work.
           </p>
 
           <div className="mt-9 flex flex-wrap justify-center gap-2">
@@ -161,7 +161,7 @@ function GalleryPage() {
           >
             <img
               src={lightbox.src}
-              alt={`${lightbox.caption} — ${lightbox.type}`}
+              alt={`${lightbox.caption} · ${lightbox.type}`}
               className="max-h-[85vh] w-auto max-w-full rounded-sm object-contain shadow-2xl"
             />
             <figcaption className="text-center text-white">
@@ -186,7 +186,7 @@ function Tile({ tile, onOpen }: { tile: Tile; onOpen: () => void }) {
       />
       <img
         src={tile.src}
-        alt={`${tile.caption} — ${tile.type}`}
+        alt={`${tile.caption} · ${tile.type}`}
         loading="lazy"
         className="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105"
       />

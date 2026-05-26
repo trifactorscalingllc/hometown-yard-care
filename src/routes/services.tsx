@@ -15,9 +15,9 @@ const HERO_PHOTOS = [
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Cason Landscaping, Stephenville TX" },
+      { title: "Services · Cason Landscaping, Stephenville TX" },
       { name: "description", content: "Lawn care, landscaping, mulching, bush trimming, leaf removal, overseeding, and aeration in Stephenville, TX." },
-      { property: "og:title", content: "Services — Cason Landscaping" },
+      { property: "og:title", content: "Services · Cason Landscaping" },
       { property: "og:description", content: "Seven services that cover almost any yard in Erath County." },
       { property: "og:url", content: "/services" },
     ],

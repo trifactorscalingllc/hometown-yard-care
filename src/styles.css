@@ -71,15 +71,15 @@
   --card-foreground: oklch(0.15 0.008 95);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.008 95);
-  /* Deep grass green — primary buttons, header, footer */
+  /* Deep grass green - primary buttons, header, footer */
   --primary: oklch(0.38 0.12 142);
   --primary-foreground: oklch(0.985 0.004 95);
-  /* Bright kelly green — matches the logo grass sprigs */
+  /* Bright kelly green - matches the logo grass sprigs */
   --secondary: oklch(0.62 0.18 142);
   --secondary-foreground: oklch(0.985 0.004 95);
   --muted: oklch(0.95 0.005 95);
   --muted-foreground: oklch(0.46 0.008 95);
-  /* Accent now mirrors secondary (logo green) — no more wheat/gold */
+  /* Accent now mirrors secondary (logo green) - no more wheat/gold */
   --accent: oklch(0.62 0.18 142);
   --accent-foreground: oklch(0.985 0.004 95);
   --destructive: oklch(0.55 0.2 27);

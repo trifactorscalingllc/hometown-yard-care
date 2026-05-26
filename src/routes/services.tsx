@@ -40,7 +40,7 @@ function ServicesPage() {
               id={s.slug}
               className="scroll-mt-24 border-b border-border py-14 last:border-b-0"
             >
-              <div className="grid gap-10 md:grid-cols-[80px_1fr_280px]">
+              <div className="grid gap-10 md:grid-cols-[80px_1fr_220px]">
                 <div className="flex flex-col items-start gap-3">
                   <span className="font-display text-5xl text-accent">0{i + 1}</span>
                   <span className="text-primary"><ServiceIcon name={s.icon} className="h-10 w-10" /></span>
@@ -57,16 +57,19 @@ function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-                <aside className="space-y-4 rounded-sm border border-border bg-muted/40 p-6 text-sm">
-                  <MetaRow label="Schedule" value="[CLIENT: typical cadence]" />
-                  <MetaRow label="Pricing" value="[CLIENT: starting price]" />
-                  <MetaRow label="Timing" value="[CLIENT: typical visit length]" />
+                <aside className="flex flex-col justify-center rounded-sm border border-border bg-muted/40 p-6 text-sm">
                   <Link
                     to="/contact"
-                    className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-4 py-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-4 py-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground"
                   >
                     Quote this service <ArrowRight className="h-3 w-3" />
                   </Link>
+                  <a
+                    href={SITE.phoneHref}
+                    className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-foreground/20 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground/5"
+                  >
+                    <Phone className="h-3 w-3" /> Call now
+                  </a>
                 </aside>
               </div>
             </article>
@@ -83,17 +86,5 @@ function ServicesPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function MetaRow({ label, value }: { label: string; value: string }) {
-  const isPlaceholder = value.startsWith("[CLIENT");
-  return (
-    <div>
-      <div className="text-xs uppercase tracking-[0.18em] text-foreground/50">{label}</div>
-      <div className="mt-1">
-        {isPlaceholder ? <span className="client-placeholder">{value}</span> : <span className="font-display text-lg">{value}</span>}
-      </div>
-    </div>
   );
 }

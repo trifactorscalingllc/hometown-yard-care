@@ -3,10 +3,9 @@ export function Logo({ size = 44, className = "" }: { size?: number; className?:
     <img
       src="/cason-logo.png"
       alt="Cason Landscaping"
-      width={size}
       height={size}
       className={className}
-      style={{ objectFit: "contain" }}
+      style={{ height: size, width: "auto", objectFit: "contain" }}
     />
   );
 }

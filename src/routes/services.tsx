@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Phone, MapPin } from "lucide-react";
 import { HeroCarousel } from "../components/HeroCarousel";
+import { Reveal } from "../components/Reveal";
 import { SERVICES, SITE } from "../components/SiteData";
 
 const HERO_PHOTOS = [
@@ -54,12 +55,12 @@ function ServicesPage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           {SERVICES.map((s, i) => (
-            <article
+            <Reveal
               key={s.slug}
-              id={s.slug}
+              as="article"
               className="scroll-mt-24 border-b border-border py-12 last:border-b-0 md:py-16"
             >
-              <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
+              <div id={s.slug} className="grid gap-8 md:grid-cols-[1fr_2fr]">
                 <div>
                   <p className="font-display text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
                     Service {String(i + 1).padStart(2, "0")}
@@ -86,13 +87,13 @@ function ServicesPage() {
                   </Link>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="bg-primary py-16 text-primary-foreground md:py-20">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 px-5 text-center md:px-8">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-5 px-5 text-center md:px-8">
           <h2 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">
             Not sure which one you need?
           </h2>
@@ -105,7 +106,7 @@ function ServicesPage() {
           >
             <Phone className="h-4 w-4" /> Call {SITE.phone}
           </a>
-        </div>
+        </Reveal>
       </section>
     </>
   );

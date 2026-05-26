@@ -10,7 +10,7 @@ export function Footer() {
         <div className="space-y-4">
           <Logo size={72} />
           <p className="max-w-xs text-sm text-foreground/70">
-            Locally owned lawn care &amp; landscape in {SITE.city}. Real people, real yards.
+            Locally owned lawn care &amp; landscape in {SITE.city}.
           </p>
         </div>
 
@@ -59,8 +59,8 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="relative bg-gradient-to-b from-white via-neutral-800 to-black text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 pb-8 pt-16 text-xs text-white/80 md:flex-row md:items-center md:justify-between md:px-8">
+      <div className="relative bg-gradient-to-b from-white via-neutral-200 to-neutral-700 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 pb-8 pt-20 text-xs text-white/85 md:flex-row md:items-center md:justify-between md:px-8">
           <p>© {new Date().getFullYear()} {SITE.name}. Owned by {SITE.owner}.</p>
           <p>Stephenville, TX · Erath County</p>
         </div>

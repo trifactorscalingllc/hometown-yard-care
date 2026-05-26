@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Clock, Facebook } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 import { SERVICES, SITE } from "../components/SiteData";
 
 export const Route = createFileRoute("/contact")({
@@ -48,7 +49,7 @@ function ContactPage() {
 
       <section className="py-14 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1.2fr_1fr] md:gap-14 md:px-8">
-          {/* FORM */}
+          <Reveal>
           <form onSubmit={onSubmit} className="rounded-sm border border-border bg-card p-7 shadow-sm md:p-9">
             <h2 className="font-display text-2xl font-bold uppercase tracking-tight">Free quote</h2>
             <p className="mt-1.5 text-sm text-muted-foreground">
@@ -89,9 +90,9 @@ function ContactPage() {
               Send my quote request
             </button>
           </form>
+          </Reveal>
 
-          {/* DIRECT */}
-          <aside className="space-y-4">
+          <Reveal as="aside" className="space-y-4" delay={120}>
             <DirectRow icon={<Phone className="h-5 w-5" />} label="Call" value={SITE.phone} href={SITE.phoneHref} />
             <DirectRow icon={<Mail className="h-5 w-5" />} label="Email" value={SITE.email} href={SITE.emailHref} />
             <DirectRow
@@ -125,12 +126,12 @@ function ContactPage() {
                 Based in Stephenville, TX
               </div>
             </div>
-          </aside>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-primary py-16 text-primary-foreground md:py-20">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 px-5 text-center md:px-8">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-5 px-5 text-center md:px-8">
           <h2 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">
             Don't like forms? Just call.
           </h2>
@@ -141,7 +142,7 @@ function ContactPage() {
             <Phone className="h-5 w-5" /> {SITE.phone}
           </a>
           <p className="text-sm text-primary-foreground/75">Ask for {SITE.owner}.</p>
-        </div>
+        </Reveal>
       </section>
     </>
   );

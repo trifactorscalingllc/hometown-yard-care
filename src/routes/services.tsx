@@ -98,7 +98,11 @@ function ServicesPage() {
             Not sure which one you need?
           </h2>
           <p className="max-w-md text-primary-foreground/80">
-            Walk us through the yard. We'll point you to the right service or send a free quote.
+            Walk us through the yard.
+            <br />
+            We'll point you to the right service
+            <br />
+            or send a free quote.
           </p>
           <a
             href={SITE.phoneHref}

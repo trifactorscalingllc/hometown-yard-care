@@ -56,14 +56,14 @@ function ContactPage() {
 
       <section className="py-14 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1.2fr_1fr] md:gap-14 md:px-8">
-          <Reveal>
-          <form onSubmit={onSubmit} className="rounded-sm border border-border bg-card p-7 shadow-sm md:p-9">
+          <Reveal className="h-full">
+          <form onSubmit={onSubmit} className="flex h-full flex-col rounded-sm border border-border bg-card p-7 shadow-sm md:p-9">
             <h2 className="font-display text-2xl font-bold uppercase tracking-tight">Free quote</h2>
             <p className="mt-1.5 text-sm text-muted-foreground">
               Submitting opens an email to {SITE.owner}. No spam, no signup.
             </p>
 
-            <div className="mt-7 grid gap-5 sm:grid-cols-2">
+            <div className="mt-7 grid flex-1 gap-5 sm:grid-cols-2">
               <Field label="Name" required>
                 <input required value={form.name} onChange={set("name")} className={input} placeholder="Jane Smith" />
               </Field>
@@ -85,8 +85,14 @@ function ContactPage() {
                   <option value="Not sure">Not sure / something else</option>
                 </select>
               </Field>
-              <Field label="Notes" className="sm:col-span-2">
-                <textarea rows={5} value={form.notes} onChange={set("notes")} className={input} placeholder="Lot size, what you're hoping for, timeframe…" />
+              <Field label="Notes" className="sm:col-span-2 flex flex-col">
+                <textarea
+                  rows={5}
+                  value={form.notes}
+                  onChange={set("notes")}
+                  className={`${input} min-h-[140px] flex-1`}
+                  placeholder="Lot size, what you're hoping for, timeframe…"
+                />
               </Field>
             </div>
 

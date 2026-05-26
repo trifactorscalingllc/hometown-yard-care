@@ -23,7 +23,7 @@ export const SERVICES = [
     name: "Landscaping",
     short: "Bed design, plant installs, and small hardscape touches.",
     icon: "landscaping" as const,
-    long: "From a single bed refresh to a full front-yard rework — we plan, plant, and place stone with an eye for what actually grows well in Erath County.",
+    long: "From a single bed refresh to a full front-yard rework we plan, plant, and place stone with an eye for what actually grows well in Erath County.",
     bullets: ["Bed shaping and edging", "Plant & shrub installation", "River-rock and stone borders", "Native, drought-tolerant choices"],
   },
   {
@@ -45,7 +45,7 @@ export const SERVICES = [
   {
     slug: "leaf-removal",
     name: "Leaf Removal",
-    short: "Fall and winter cleanups — blown, bagged, and gone.",
+    short: "Fall and winter cleanups blown, bagged, and gone.",
     icon: "leaf-removal" as const,
     long: "We blow out beds, fence lines, and the lawn, then bag and haul. One-time or recurring through the leaf-drop season.",
     bullets: ["Beds, lawn, and fence lines", "Gutter-line clearing", "Bagged and hauled away", "One-time or recurring"],
@@ -63,7 +63,7 @@ export const SERVICES = [
     name: "Aeration",
     short: "Core-pull compacted soil so roots, water, and air get through.",
     icon: "aeration" as const,
-    long: "Mechanical core aeration that pulls plugs — not just spike rolling. Best done in growing season, often paired with overseeding and a top-dress.",
+    long: "Mechanical core aeration that pulls plugs not just spike rolling. Best done in growing season, often paired with overseeding and a top-dress.",
     bullets: ["True core-pull aeration", "Marks sprinklers before passing", "Pairs with overseeding", "Quick-recovery scheduling"],
   },
 ];

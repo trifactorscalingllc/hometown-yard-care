@@ -6,7 +6,7 @@ import { SERVICES, SITE } from "../components/SiteData";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Free Quote — Cason Landscaping" },
+      { title: "Contact & Free Quote Cason Landscaping" },
       { name: "description", content: "Request a free lawn care or landscape quote in Stephenville, TX. Call (254) 434-3838 or send a quick message." },
       { property: "og:title", content: "Contact Cason Landscaping" },
       { property: "og:description", content: "Free quotes from a real neighbor in Stephenville, TX." },
@@ -22,7 +22,7 @@ function ContactPage() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = `Quote request — ${form.service || "General"} — ${form.name}`;
+    const subject = `Quote request ${form.service || "General"} ${form.name}`;
     const body =
       `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nZIP: ${form.zip}\nService: ${form.service}\n\nNotes:\n${form.notes}`;
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

@@ -6,9 +6,9 @@ import { SERVICES, SITE } from "../components/SiteData";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cason Landscaping — Lawn Care in Stephenville, TX" },
+      { title: "Cason Landscaping Lawn Care in Stephenville, TX" },
       { name: "description", content: "Locally owned lawn care and landscape in Stephenville, TX. Free quotes from a real neighbor. Call (254) 434-3838." },
-      { property: "og:title", content: "Cason Landscaping — Stephenville, TX" },
+      { property: "og:title", content: "Cason Landscaping Stephenville, TX" },
       { property: "og:description", content: "Yards that look like home. Lawn care, mulching, landscaping in Erath County." },
       { property: "og:url", content: "/" },
     ],
@@ -126,11 +126,11 @@ function Home() {
             <p className="mb-4 font-display text-xs uppercase tracking-[0.25em] text-accent">Who we are</p>
             <h2 className="font-display text-4xl md:text-5xl">Locally owned. <em>Stephenville</em> grown.</h2>
             <p className="mt-6 max-w-md text-base text-primary-foreground/75">
-              Cason Landscaping is owned and operated by {SITE.owner} — your neighbor, not a franchise.
+              Cason Landscaping is owned and operated by {SITE.owner} your neighbor, not a franchise.
               Every yard gets the same care he'd give his own.
             </p>
             <div className="client-placeholder mt-6 max-w-md !border-accent !bg-accent/10 !text-primary-foreground">
-              [CLIENT: short owner bio paragraph — how Kade started, what he loves about the work]
+              [CLIENT: short owner bio paragraph how Kade started, what he loves about the work]
             </div>
           </div>
           <div className="grid grid-cols-2 gap-px self-center bg-primary-foreground/15">

@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Phone, MapPin } from "lucide-react";
+import { HeroCarousel } from "../components/HeroCarousel";
 import { SERVICES, SITE } from "../components/SiteData";
+
+const HERO_PHOTOS = [
+  "/gallery/work-47.jpg",
+  "/gallery/work-04.jpg",
+  "/gallery/work-30.jpg",
+  "/gallery/work-22.jpg",
+  "/gallery/work-09.jpg",
+  "/gallery/work-43.jpg",
+];
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -19,12 +29,23 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <>
-      <section className="border-b border-border bg-muted/40 py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <h1 className="max-w-3xl font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
-            Seven services. One local crew.
+      <section className="relative isolate flex min-h-[640px] flex-col text-white md:min-h-[760px]">
+        <HeroCarousel photos={HERO_PHOTOS} />
+
+        <div className="relative z-10 border-b border-white/15 bg-black/30 backdrop-blur-sm">
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-5 py-3 text-xs font-medium uppercase tracking-[0.22em] md:px-8">
+            <MapPin className="h-3.5 w-3.5" aria-hidden />
+            <span>Serving Stephenville, TX · Erath County</span>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 py-24 text-center md:px-8">
+          <h1 className="max-w-3xl font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+            Seven services.
+            <br />
+            One local crew.
           </h1>
-          <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+          <p className="mt-6 max-w-xl text-base text-white/85 md:text-lg">
             Every service is offered as a one-time visit or a recurring schedule. Free quote, honest work, real follow-through.
           </p>
         </div>

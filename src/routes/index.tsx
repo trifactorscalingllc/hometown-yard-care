@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, Check, MapPin } from "lucide-react";
+import { ArrowRight, Phone, MapPin } from "lucide-react";
 import { HeroCarousel } from "../components/HeroCarousel";
+import { Reveal } from "../components/Reveal";
 import { SERVICES, SITE } from "../components/SiteData";
 
 export const Route = createFileRoute("/")({
@@ -74,78 +75,61 @@ function Home() {
       {/* SERVICES */}
       <section className="border-b border-border bg-background py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="mb-14 max-w-2xl">
+          <Reveal className="mb-14 max-w-2xl">
             <h2 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">
               What we do
             </h2>
             <p className="mt-4 text-base text-muted-foreground md:text-lg">
               Seven services covering most properties in Erath County. One-time visits or a recurring schedule · your call.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {SERVICES.map((s) => (
-              <Link
-                key={s.slug}
-                to="/services"
-                hash={s.slug}
-                className="group flex flex-col gap-3 bg-background p-7 transition-colors hover:bg-muted/60"
-              >
-                <h3 className="font-display text-xl font-bold uppercase tracking-tight">
-                  {s.name}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{s.short}</p>
-                <span className="mt-auto inline-flex items-center gap-1 pt-3 text-xs font-bold uppercase tracking-wider text-primary">
-                  Learn more <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+            {SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={(i % 4) * 80}>
+                <Link
+                  to="/services"
+                  hash={s.slug}
+                  className="group flex h-full flex-col gap-3 bg-background p-7 transition-colors hover:bg-muted/60"
+                >
+                  <h3 className="font-display text-xl font-bold uppercase tracking-tight">
+                    {s.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{s.short}</p>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-3 text-xs font-bold uppercase tracking-wider text-primary">
+                    Learn more <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section className="bg-primary py-16 text-primary-foreground md:py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-3 md:px-8">
-          <TrustItem
-            title="Locally Owned"
-            body={`Owned and operated by ${SITE.owner}. Same crew, every visit.`}
-          />
-          <TrustItem
-            title="Free Quotes"
-            body="Tell us what you need, we'll write it up. No upsell, no pressure."
-          />
-          <TrustItem
-            title="Real Work, Real People"
-            body="Show up when we say we will. Do what we say we'll do."
-          />
         </div>
       </section>
 
       {/* GALLERY PREVIEW */}
       <section className="py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="mb-10 flex items-end justify-between gap-4">
+          <Reveal className="mb-10 flex items-end justify-between gap-4">
             <h2 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">
               Recent work
             </h2>
             <Link to="/gallery" className="inline-flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-primary hover:text-secondary">
               See all <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-2 md:gap-3">
+          </Reveal>
+          <Reveal className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-2 md:gap-3">
             <PreviewTile className="md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" src="/gallery/work-04.jpg" label="Stone planter wall" />
             <PreviewTile className="aspect-square" src="/gallery/work-30.jpg" label="Rock & plant island" />
             <PreviewTile className="aspect-square" src="/gallery/work-22.jpg" label="Stone retaining wall" />
             <PreviewTile className="aspect-square" src="/gallery/work-18.jpg" label="Curved mulch bed" />
             <PreviewTile className="aspect-square" src="/gallery/work-43.jpg" label="Crisp edges" />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA BAND */}
       <section className="bg-primary py-20 text-primary-foreground md:py-24">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-5 text-center md:px-8">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-5 text-center md:px-8">
           <h2 className="font-display text-3xl font-bold uppercase leading-tight tracking-tight md:text-5xl">
             Ready when you are.
           </h2>
@@ -160,21 +144,9 @@ function Home() {
               <Phone className="h-4 w-4" /> {SITE.phone}
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
-  );
-}
-
-function TrustItem({ title, body }: { title: string; body: string }) {
-  return (
-    <div className="flex flex-col items-center text-center">
-      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-white">
-        <Check className="h-4 w-4" />
-      </div>
-      <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-wide">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">{body}</p>
-    </div>
   );
 }
 

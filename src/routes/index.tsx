@@ -49,7 +49,7 @@ function Home() {
             Done right.
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/85 md:text-lg">
-            Lawn care, mulching, and landscape work from a local crew you'll see every week. Free quotes — talk to a real person.
+            Lawn care, mulching, and landscape work from a local crew you'll see every week.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">

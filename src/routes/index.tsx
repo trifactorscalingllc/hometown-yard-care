@@ -102,6 +102,30 @@ function Home() {
                 </Link>
               </Reveal>
             ))}
+            <Reveal delay={(SERVICES.length % 4) * 80}>
+              <div className="group flex h-full flex-col gap-3 bg-primary p-7 text-primary-foreground">
+                <h3 className="font-display text-xl font-bold uppercase tracking-tight">
+                  Don't see what you're looking for?
+                </h3>
+                <p className="text-sm leading-relaxed text-primary-foreground/80">
+                  If it's outside, we probably do it. Tell us what you need and we'll take a look.
+                </p>
+                <div className="mt-auto flex flex-col gap-2 pt-3 sm:flex-row sm:items-center">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-1 rounded-sm bg-secondary px-3 py-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-secondary/90"
+                  >
+                    Apply <ArrowRight className="h-3 w-3" />
+                  </Link>
+                  <a
+                    href={SITE.phoneHref}
+                    className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-primary-foreground/90 hover:text-secondary"
+                  >
+                    <Phone className="h-3 w-3" /> Call
+                  </a>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

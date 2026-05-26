@@ -34,11 +34,11 @@ function ContactPage() {
   return (
     <>
       <section className="border-b border-border bg-muted/40 py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
           <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
             Tell us about your yard
           </h1>
-          <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
             Most quotes go out within 24 hours. Prefer to talk? Call the number below — we actually answer.
           </p>
         </div>

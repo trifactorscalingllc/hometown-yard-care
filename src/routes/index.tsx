@@ -168,14 +168,12 @@ function Home() {
 
 function TrustItem({ title, body }: { title: string; body: string }) {
   return (
-    <div className="flex gap-4">
-      <div className="mt-1.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-white">
+    <div className="flex flex-col items-center text-center">
+      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-white">
         <Check className="h-4 w-4" />
       </div>
-      <div>
-        <h3 className="font-display text-lg font-bold uppercase tracking-wide">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-primary-foreground/80">{body}</p>
-      </div>
+      <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-wide">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">{body}</p>
     </div>
   );
 }

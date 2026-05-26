@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { SITE } from "./SiteData";
 
@@ -40,7 +40,7 @@ export function Header() {
             className="hidden items-center gap-2 rounded-sm bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:inline-flex"
             aria-label={`Call ${SITE.phone}`}
           >
-            <span aria-hidden>📞</span>
+            <Phone className="h-4 w-4" />
             Call
           </a>
           <button
@@ -72,7 +72,7 @@ export function Header() {
               className="mt-2 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
               aria-label={`Call ${SITE.phone}`}
             >
-              <span aria-hidden>📞</span>
+              <Phone className="h-4 w-4" />
               Call
             </a>
           </nav>

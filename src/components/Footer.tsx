@@ -5,7 +5,7 @@ import { SITE, SERVICES } from "./SiteData";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4 md:gap-12 md:px-8 md:py-16">
         <div className="space-y-4">
           <Logo size={72} />

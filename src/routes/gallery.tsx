@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { X } from "lucide-react";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -63,7 +64,6 @@ const TILES: Tile[] = [
   { src: "/gallery/work-46.jpg", caption: "Lawn touch-up", type: "Sod + seed", category: "Lawn Care", span: "md:col-span-2 md:row-span-1" },
   { src: "/gallery/work-48.jpg", caption: "Property entry", type: "Front install", category: "Landscaping", span: "md:col-span-1 md:row-span-1" },
   { src: "/gallery/work-49.jpg", caption: "Ranch frontage", type: "Lawn + bed work", category: "Landscaping", span: "md:col-span-1 md:row-span-1" },
-  { src: "/gallery/work-02.jpg", caption: "Stone house beds", type: "Mulch + plant", category: "Mulching", span: "md:col-span-2 md:row-span-1" },
   { src: "/gallery/work-03.jpg", caption: "Stone-bordered beds", type: "Mulch install", category: "Mulching", span: "md:col-span-1 md:row-span-1" },
   { src: "/gallery/work-06.jpg", caption: "Commercial frontage", type: "Mulch + edging", category: "Mulching", span: "md:col-span-1 md:row-span-1" },
   { src: "/gallery/work-07.jpg", caption: "Building edge work", type: "Mulch + edge", category: "Stone", span: "md:col-span-2 md:row-span-1" },
@@ -80,20 +80,35 @@ const FILTERS = ["All", "Landscaping", "Lawn Care", "Mulching", "Stone"] as cons
 
 function GalleryPage() {
   const [active, setActive] = useState<(typeof FILTERS)[number]>("All");
+  const [lightbox, setLightbox] = useState<Tile | null>(null);
   const tiles = active === "All" ? TILES : TILES.filter((t) => t.category === active);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [lightbox]);
 
   return (
     <>
       <section className="border-b border-border bg-muted/40 py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 text-center md:px-8">
           <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
             Recent work around Stephenville
           </h1>
-          <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
             {TILES.length} real jobs — lawn care, mulching, landscaping, and stone work.
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-2">
+          <div className="mt-9 flex flex-wrap justify-center gap-2">
             {FILTERS.map((f) => {
               const count = f === "All" ? TILES.length : TILES.filter((t) => t.category === f).length;
               return (
@@ -118,25 +133,64 @@ function GalleryPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {tiles.map((t) => (
-              <Tile key={t.src} tile={t} />
+              <Tile key={t.src} tile={t} onOpen={() => setLightbox(t)} />
             ))}
           </div>
         </div>
       </section>
+
+      {lightbox && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.caption}
+          onClick={() => setLightbox(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <figure
+            onClick={(e) => e.stopPropagation()}
+            className="flex max-h-full max-w-6xl flex-col items-center gap-3"
+          >
+            <img
+              src={lightbox.src}
+              alt={`${lightbox.caption} — ${lightbox.type}`}
+              className="max-h-[85vh] w-auto max-w-full rounded-sm object-contain shadow-2xl"
+            />
+            <figcaption className="text-center text-white">
+              <div className="font-display text-lg font-semibold">{lightbox.caption}</div>
+              <div className="text-sm opacity-80">{lightbox.type}</div>
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </>
   );
 }
 
-function Tile({ tile }: { tile: Tile }) {
+function Tile({ tile, onOpen }: { tile: Tile; onOpen: () => void }) {
   return (
     <figure className={`group relative overflow-hidden rounded-sm border border-border bg-muted ${tile.span}`}>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`View ${tile.caption} full size`}
+        className="absolute inset-0 z-10"
+      />
       <img
         src={tile.src}
         alt={`${tile.caption} — ${tile.type}`}
         loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 text-white">
+      <figcaption className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 text-white">
         <div className="text-sm font-semibold">{tile.caption}</div>
         <div className="text-xs opacity-80">{tile.type}</div>
       </figcaption>

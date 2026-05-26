@@ -39,7 +39,9 @@ function ContactPage() {
             Tell us about your yard
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-            Most quotes go out within 24 hours. Prefer to talk? Call the number below — we actually answer.
+            Most quotes go out within 24 hours.
+            <br />
+            Prefer to talk? Call the number below.
           </p>
         </div>
       </section>

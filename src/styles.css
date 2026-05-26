@@ -63,43 +63,43 @@
 
 :root {
   --radius: 0.25rem;
-  /* Cream #F4EDE0 */
-  --background: oklch(0.948 0.022 84);
-  /* Near-black ink #14110D */
-  --foreground: oklch(0.16 0.008 70);
-  --card: oklch(0.965 0.018 84);
-  --card-foreground: oklch(0.16 0.008 70);
-  --popover: oklch(0.965 0.018 84);
-  --popover-foreground: oklch(0.16 0.008 70);
-  /* Deep forest green #1F3A2E */
-  --primary: oklch(0.33 0.05 155);
-  --primary-foreground: oklch(0.948 0.022 84);
-  /* Moss green #6B8E5A */
-  --secondary: oklch(0.6 0.08 135);
-  --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.91 0.025 84);
-  --muted-foreground: oklch(0.42 0.02 70);
-  /* Warm wheat #B8954A */
-  --accent: oklch(0.69 0.11 80);
-  --accent-foreground: oklch(0.16 0.008 70);
+  /* Warm white background */
+  --background: oklch(0.985 0.004 95);
+  /* Near-black */
+  --foreground: oklch(0.15 0.008 95);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.008 95);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.008 95);
+  /* Deep grass green — primary buttons, header, footer */
+  --primary: oklch(0.38 0.12 142);
+  --primary-foreground: oklch(0.985 0.004 95);
+  /* Bright kelly green — matches the logo grass sprigs */
+  --secondary: oklch(0.62 0.18 142);
+  --secondary-foreground: oklch(0.985 0.004 95);
+  --muted: oklch(0.95 0.005 95);
+  --muted-foreground: oklch(0.46 0.008 95);
+  /* Accent now mirrors secondary (logo green) — no more wheat/gold */
+  --accent: oklch(0.62 0.18 142);
+  --accent-foreground: oklch(0.985 0.004 95);
   --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.86 0.025 80);
-  --input: oklch(0.86 0.025 80);
-  --ring: oklch(0.69 0.11 80);
+  --border: oklch(0.9 0.005 95);
+  --input: oklch(0.9 0.005 95);
+  --ring: oklch(0.62 0.18 142);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.948 0.022 84);
-  --sidebar-foreground: oklch(0.16 0.008 70);
-  --sidebar-primary: oklch(0.33 0.05 155);
-  --sidebar-primary-foreground: oklch(0.948 0.022 84);
-  --sidebar-accent: oklch(0.69 0.11 80);
-  --sidebar-accent-foreground: oklch(0.16 0.008 70);
-  --sidebar-border: oklch(0.86 0.025 80);
-  --sidebar-ring: oklch(0.69 0.11 80);
+  --sidebar: oklch(0.985 0.004 95);
+  --sidebar-foreground: oklch(0.15 0.008 95);
+  --sidebar-primary: oklch(0.38 0.12 142);
+  --sidebar-primary-foreground: oklch(0.985 0.004 95);
+  --sidebar-accent: oklch(0.62 0.18 142);
+  --sidebar-accent-foreground: oklch(0.985 0.004 95);
+  --sidebar-border: oklch(0.9 0.005 95);
+  --sidebar-ring: oklch(0.62 0.18 142);
 }
 
 .dark {
@@ -146,41 +146,38 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
   }
 
   h1, h2, h3, h4, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-optical-sizing: auto;
-    letter-spacing: -0.02em;
+    font-family: 'Oswald', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-transform: none;
   }
 
-  h1 em, h2 em, h3 em, .font-display em {
-    font-style: italic;
-    font-variation-settings: 'SOFT' 100;
-    color: var(--color-accent);
+  h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
   }
 }
 
-/* Subtle paper-grain dot pattern */
-.bg-grain {
-  background-image: radial-gradient(circle at 1px 1px, rgba(20,17,13,0.06) 1px, transparent 0);
-  background-size: 14px 14px;
+/* Hero photo crossfade */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  will-change: opacity;
 }
-.bg-grain-dark {
-  background-image: radial-gradient(circle at 1px 1px, rgba(244,237,224,0.04) 1px, transparent 0);
-  background-size: 14px 14px;
+.hero-photo.is-active {
+  opacity: 1;
 }
 
-/* Client placeholder marker */
-.client-placeholder {
-  border: 1.5px dashed var(--color-accent);
-  background: color-mix(in oklab, var(--color-accent) 8%, transparent);
-  color: var(--color-foreground);
-  padding: 0.5rem 0.75rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: 2px;
+/* Hidden helper for screen-reader-only stuff */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
 }

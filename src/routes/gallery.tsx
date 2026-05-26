@@ -84,25 +84,26 @@ function GalleryPage() {
 
   return (
     <>
-      <section className="border-b border-border py-16">
+      <section className="border-b border-border bg-muted/40 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <p className="mb-4 font-display text-xs uppercase tracking-[0.25em] text-accent">Recent work</p>
-          <h1 className="font-display text-5xl md:text-7xl">Around the <em>neighborhood</em>.</h1>
-          <p className="mt-5 max-w-xl text-foreground/75">
-            Real yards, real projects — {TILES.length} recent jobs in and around Stephenville.
+          <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
+            Recent work around Stephenville
+          </h1>
+          <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+            {TILES.length} real jobs — lawn care, mulching, landscaping, and stone work.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-2">
+          <div className="mt-9 flex flex-wrap gap-2">
             {FILTERS.map((f) => {
               const count = f === "All" ? TILES.length : TILES.filter((t) => t.category === f).length;
               return (
                 <button
                   key={f}
                   onClick={() => setActive(f)}
-                  className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                  className={`rounded-sm border px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${
                     active === f
                       ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-background text-foreground/70 hover:border-foreground/40"
+                      : "border-border bg-card text-foreground/70 hover:border-foreground/40"
                   }`}
                 >
                   {f} <span className="opacity-60">· {count}</span>

@@ -81,6 +81,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Cason Landscaping" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { property: "og:title", content: "Cason Landscaping Stephenville, TX" },
+      { name: "twitter:title", content: "Cason Landscaping Stephenville, TX" },
+      { property: "og:description", content: "Locally owned lawn care & landscape in Stephenville, TX. Mowing, mulching, bush trimming, leaf removal, overseeding, aeration." },
+      { name: "twitter:description", content: "Locally owned lawn care & landscape in Stephenville, TX. Mowing, mulching, bush trimming, leaf removal, overseeding, aeration." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8f31c2e5-46a6-4670-9556-f73d2219763d" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8f31c2e5-46a6-4670-9556-f73d2219763d" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

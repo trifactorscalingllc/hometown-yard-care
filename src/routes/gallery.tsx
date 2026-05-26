@@ -4,9 +4,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Cason Landscaping, Stephenville TX" },
+      { title: "Gallery Cason Landscaping, Stephenville TX" },
       { name: "description", content: "Recent lawn care, landscaping, mulch, and stonework projects in and around Stephenville, Texas." },
-      { property: "og:title", content: "Gallery — Cason Landscaping" },
+      { property: "og:title", content: "Gallery Cason Landscaping" },
       { property: "og:description", content: "See yards we've kept and projects we've put in." },
       { property: "og:url", content: "/gallery" },
     ],
@@ -23,7 +23,7 @@ type Tile = {
   span: string;
 };
 
-// 48 work photos from Facebook (work-13 skipped — it's a promo graphic).
+// 48 work photos from Facebook (work-13 skipped it's a promo graphic).
 // Spans alternate to keep the grid lively; hero-style large tiles every ~8 photos.
 const TILES: Tile[] = [
   { src: "/gallery/work-47.jpg", caption: "Golden-hour mow", type: "Large-lot lawn care", category: "Lawn Care", span: "md:col-span-2 md:row-span-2" },
@@ -89,7 +89,7 @@ function GalleryPage() {
           <p className="mb-4 font-display text-xs uppercase tracking-[0.25em] text-accent">Recent work</p>
           <h1 className="font-display text-5xl md:text-7xl">Around the <em>neighborhood</em>.</h1>
           <p className="mt-5 max-w-xl text-foreground/75">
-            Real yards, real projects — {TILES.length} recent jobs in and around Stephenville.
+            Real yards, real projects {TILES.length} recent jobs in and around Stephenville.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-2">
@@ -131,7 +131,7 @@ function Tile({ tile }: { tile: Tile }) {
     <figure className={`group relative overflow-hidden rounded-sm border border-border bg-muted ${tile.span}`}>
       <img
         src={tile.src}
-        alt={`${tile.caption} — ${tile.type}`}
+        alt={`${tile.caption} ${tile.type}`}
         loading="lazy"
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />

@@ -16,11 +16,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Cason Landscaping — Home">
-          <Logo size={44} />
-          <span className="hidden font-display text-lg leading-none tracking-tight sm:block">
-            Cason <span className="italic text-primary">Landscaping</span>
-          </span>
+        <Link to="/" className="flex items-center" aria-label="Cason Landscaping Home">
+          <Logo size={52} />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">

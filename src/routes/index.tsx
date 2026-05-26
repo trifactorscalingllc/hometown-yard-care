@@ -56,9 +56,11 @@ function Home() {
           </div>
           <div className="relative">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-sm border border-border bg-muted">
-              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-secondary/30 via-accent/10 to-primary/20">
-                <div className="client-placeholder">[CLIENT: hero photo — a finished yard]</div>
-              </div>
+              <img
+                src="/gallery/work-09.jpg"
+                alt="A finished yard cared for by Cason Landscaping in Stephenville, TX"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-6 -left-6 hidden h-24 w-24 rounded-sm bg-accent md:block" aria-hidden />
             <div className="absolute -top-4 -right-4 hidden h-16 w-16 rounded-sm border border-primary md:block" aria-hidden />
@@ -161,11 +163,11 @@ function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2 md:gap-4">
-            <GalleryTile className="md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" tone="primary" label="Front bed refresh" />
-            <GalleryTile className="aspect-square" tone="accent" label="Weekly mow" />
-            <GalleryTile className="aspect-square" tone="secondary" label="Stone edging" />
-            <GalleryTile className="aspect-square" tone="muted" label="Mulch beds" />
-            <GalleryTile className="aspect-square" tone="accent" label="Hedge shaping" />
+            <GalleryTile className="md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" src="/gallery/work-04.jpg" label="Stone planter wall" />
+            <GalleryTile className="aspect-square" src="/gallery/work-17.jpg" label="Front entry refresh" />
+            <GalleryTile className="aspect-square" src="/gallery/work-03.jpg" label="Stone-bordered beds" />
+            <GalleryTile className="aspect-square" src="/gallery/work-12.jpg" label="Tree-ring mulch" />
+            <GalleryTile className="aspect-square" src="/gallery/work-15.jpg" label="Ranch rock bed" />
           </div>
         </div>
       </section>
@@ -193,19 +195,16 @@ function Home() {
   );
 }
 
-function GalleryTile({ className = "", tone, label }: { className?: string; tone: "primary" | "accent" | "secondary" | "muted"; label: string }) {
-  const toneClass = {
-    primary: "from-primary/30 to-secondary/30",
-    accent: "from-accent/30 to-muted",
-    secondary: "from-secondary/40 to-primary/20",
-    muted: "from-muted to-accent/10",
-  }[tone];
+function GalleryTile({ className = "", src, label }: { className?: string; src: string; label: string }) {
   return (
-    <figure className={`relative overflow-hidden rounded-sm border border-border bg-gradient-to-br ${toneClass} ${className}`}>
-      <div className="flex h-full w-full items-center justify-center p-4">
-        <div className="client-placeholder">[CLIENT: photo]</div>
-      </div>
-      <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-xs text-white">
+    <figure className={`group relative overflow-hidden rounded-sm border border-border bg-muted ${className}`}>
+      <img
+        src={src}
+        alt={`${label} by Cason Landscaping`}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3 text-xs text-white">
         {label} · <span className="opacity-75">Cason Landscaping</span>
       </figcaption>
     </figure>

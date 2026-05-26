@@ -16,26 +16,30 @@ export const Route = createFileRoute("/gallery")({
 });
 
 type Tile = {
+  src: string;
   caption: string;
-  type: string; // "Mulch beds", etc.
+  type: string;
   category: "Landscaping" | "Lawn Care" | "Mulching" | "Stone";
   span: string;
-  tone: "primary" | "accent" | "secondary" | "muted";
 };
 
 const TILES: Tile[] = [
-  { caption: "Front bed refresh", type: "Mulch beds", category: "Mulching", span: "md:col-span-2 md:row-span-2", tone: "primary" },
-  { caption: "Backyard reshape", type: "Landscape design", category: "Landscaping", span: "md:col-span-1 md:row-span-1", tone: "secondary" },
-  { caption: "Driveway edge", type: "Stone border", category: "Stone", span: "md:col-span-1 md:row-span-1", tone: "accent" },
-  { caption: "Weekly mow", type: "Lawn care", category: "Lawn Care", span: "md:col-span-2 md:row-span-1", tone: "muted" },
-  { caption: "Bermuda fill-in", type: "Overseeding", category: "Lawn Care", span: "md:col-span-1 md:row-span-2", tone: "primary" },
-  { caption: "River-rock bed", type: "Stonework", category: "Stone", span: "md:col-span-1 md:row-span-1", tone: "accent" },
-  { caption: "Shrub shaping", type: "Bush trim", category: "Landscaping", span: "md:col-span-2 md:row-span-1", tone: "secondary" },
-  { caption: "Fresh hardwood", type: "Mulch install", category: "Mulching", span: "md:col-span-1 md:row-span-1", tone: "accent" },
-  { caption: "Front walkway", type: "Stone path", category: "Stone", span: "md:col-span-1 md:row-span-1", tone: "muted" },
-  { caption: "Clean edge work", type: "Lawn care", category: "Lawn Care", span: "md:col-span-2 md:row-span-1", tone: "primary" },
-  { caption: "Bed extension", type: "Landscape add-on", category: "Landscaping", span: "md:col-span-1 md:row-span-1", tone: "secondary" },
-  { caption: "Mulch + edge", type: "Mulch refresh", category: "Mulching", span: "md:col-span-1 md:row-span-1", tone: "accent" },
+  { src: "/gallery/work-04.jpg", caption: "Stone planter wall", type: "Hardscape + plant install", category: "Stone", span: "md:col-span-2 md:row-span-2" },
+  { src: "/gallery/work-09.jpg", caption: "Shaded front lawn", type: "Weekly mow", category: "Lawn Care", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-17.jpg", caption: "Front entry refresh", type: "Mulch + granite path", category: "Landscaping", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-03.jpg", caption: "Stone-bordered beds", type: "Mulch install", category: "Mulching", span: "md:col-span-2 md:row-span-1" },
+  { src: "/gallery/work-05.jpg", caption: "Poolside island", type: "Landscape design", category: "Landscaping", span: "md:col-span-1 md:row-span-2" },
+  { src: "/gallery/work-15.jpg", caption: "Ranch house rock bed", type: "Landscape install", category: "Landscaping", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-12.jpg", caption: "Tree-ring bed", type: "Mulch refresh", category: "Mulching", span: "md:col-span-2 md:row-span-1" },
+  { src: "/gallery/work-07.jpg", caption: "Commercial frontage", type: "Mulch + edging", category: "Mulching", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-08.jpg", caption: "Green steel edge", type: "Bed edging", category: "Stone", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-06.jpg", caption: "Pediatrics clinic", type: "Commercial upkeep", category: "Mulching", span: "md:col-span-2 md:row-span-1" },
+  { src: "/gallery/work-01.jpg", caption: "Open-lot mow", type: "Large-property lawn", category: "Lawn Care", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-11.jpg", caption: "Back-fence shrubs", type: "Trimming + mow", category: "Lawn Care", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-10.jpg", caption: "Backyard cleanup", type: "Bed shaping", category: "Landscaping", span: "md:col-span-2 md:row-span-1" },
+  { src: "/gallery/work-14.jpg", caption: "Ranch-house yard prep", type: "Sod + bed work", category: "Landscaping", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-16.jpg", caption: "Front-yard reshape", type: "Grading + sod", category: "Lawn Care", span: "md:col-span-1 md:row-span-1" },
+  { src: "/gallery/work-02.jpg", caption: "Stone house beds", type: "Mulch + plant install", category: "Mulching", span: "md:col-span-2 md:row-span-1" },
 ];
 
 const FILTERS = ["All", "Landscaping", "Lawn Care", "Mulching", "Stone"] as const;
@@ -51,7 +55,7 @@ function GalleryPage() {
           <p className="mb-4 font-display text-xs uppercase tracking-[0.25em] text-accent">Recent work</p>
           <h1 className="font-display text-5xl md:text-7xl">Around the <em>neighborhood</em>.</h1>
           <p className="mt-5 max-w-xl text-foreground/75">
-            Real yards, real projects. Photos are added as jobs wrap up.
+            Real yards, real projects — pulled straight from recent jobs in and around Stephenville.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-2">
@@ -75,12 +79,9 @@ function GalleryPage() {
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {tiles.map((t, i) => (
-              <Tile key={i} tile={t} />
+            {tiles.map((t) => (
+              <Tile key={t.src} tile={t} />
             ))}
-          </div>
-          <div className="client-placeholder mt-10 inline-block">
-            [CLIENT: send real job photos — landscape orientation works best]
           </div>
         </div>
       </section>
@@ -89,18 +90,15 @@ function GalleryPage() {
 }
 
 function Tile({ tile }: { tile: Tile }) {
-  const toneClass = {
-    primary: "from-primary/30 to-secondary/30",
-    accent: "from-accent/30 to-muted",
-    secondary: "from-secondary/40 to-primary/20",
-    muted: "from-muted to-accent/15",
-  }[tile.tone];
   return (
-    <figure className={`group relative overflow-hidden rounded-sm border border-border bg-gradient-to-br ${toneClass} ${tile.span}`}>
-      <div className="flex h-full w-full items-center justify-center p-3">
-        <div className="client-placeholder">[CLIENT: photo]</div>
-      </div>
-      <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-3 text-white">
+    <figure className={`group relative overflow-hidden rounded-sm border border-border bg-muted ${tile.span}`}>
+      <img
+        src={tile.src}
+        alt={`${tile.caption} — ${tile.type}`}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 text-white">
         <div className="text-sm font-semibold">{tile.caption}</div>
         <div className="text-xs opacity-80">{tile.type}</div>
       </figcaption>
